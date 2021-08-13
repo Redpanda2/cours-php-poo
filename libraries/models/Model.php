@@ -1,8 +1,10 @@
 <?php
 
+namespace Models;
+
 require_once("libraries/database.php");
 
-class Model
+abstract class Model
 {
     protected $pdo;
     protected $table;
@@ -42,9 +44,9 @@ class Model
     public function  find(int $id)
     {
         $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
-        // On exécute la requête en précisant le paramètre :article_id 
+        // On exécute la requête en précisant le paramètre :id 
         $query->execute(['id' => $id]);
-        // On fouille le résultat pour en extraire les données réelles de l'article
+        // On fouille le résultat pour en extraire les données réelles de la table
         $item = $query->fetch();
 
         return $item;
@@ -52,7 +54,7 @@ class Model
 
 
     /**
-     * Supprime un commentaire donné
+     * Supprime un item donné
      * 
      * @param int $id
      * 
