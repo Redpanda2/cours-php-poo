@@ -9,6 +9,4 @@
 
 require_once("libraries/autoload.php");
 
-// 1. On crée le controlleur des articles
-$controller = new \Controllers\Article();
-$controller->index();
+\Application::process();

@@ -58,7 +58,7 @@ class Article extends Controller
          */
         $pageTitle = $article['title'];
 
-        // avec compact on envoi un tableau assoicatif composé de variables qui auront comme key le nom de la variable
+        // avec compact on envoi un tableau associatif composé de variables qui auront comme key le nom de la variable
         \Renderer::render('articles/show', compact('pageTitle', 'article', 'commentaires', 'article_id'));
     }
 
